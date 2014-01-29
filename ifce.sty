@@ -1,0 +1,453 @@
+
+\typeout{Documento Estilo `ifce' versao 2.1 <01 de maio de 2014>.}
+\typeout{Desenvolvido por Paolo Oliveira e baseado no estilo `fisica-ufc' versao 2.1 por Ricardo Renan Landim e outros }
+\typeout{ Este macro nao e propriedade do IFCE e pode
+ser distribuido livremente.}
+%subistitui o pacote lastpage
+\def\lastpage@putlabel{\addtocounter{page}{-2}%
+\immediate\write\@auxout{\string
+\newlabel{LastPage}{{}{\thepage}}}%
+\addtocounter{page}{1}}
+\AtEndDocument{%
+\message{AED: lastpage setting LastPage}%
+\clearpage\lastpage@putlabel}%
+
+\data{\the\year}
+%\RequirePackage{lastpage}
+\def\introducao{\chapter*{\MakeUppercase{Introdu\c{c}\~{a}o}}}
+\def\conclusao{\chapter*{\MakeUppercase{Conclus\~{a}o}}}
+%\instituicao{Instituto Federal de Educa\c{c}\~ao Ci\^encia e Tecnologia do Cear\'a  Departamento de Telem\'atica}
+\local{Fortaleza}
+%\def\Departamento#1{\gdef\@departamento{#1}}
+\providecommand{\ABNTGraudata}{}
+\providecommand{\ABNTGrau}{}
+\providecommand{\ABNTTipodata}{}
+\providecommand{\ABNTpos}{}
+\providecommand{\ABNTarea}{}
+%\newcommand{\Tipo}[1]{\renewcommand{\ABNTTipodata}{#1}}
+\newcommand{\Tipo}[1]
+{
+\ifnum#1=1
+\renewcommand{\ABNTarea}{\'Area de Concentra\c{c}\~ao:  Engenharia de Telecomunica\c{c}\~oes}
+\renewcommand{\ABNTTipodata}{Disserta\c{c}\~ao}
+\renewcommand{\ABNTGraudata}{Mestre}
+\renewcommand{\ABNTGrau}{Mestrado}
+\comentario{\ABNTTipodata~de~\ABNTGrau~apresentada ao  Programa  de P\'os-Gradua\c c\~ao em Engenharia de Telecomunica\c{c}\~oes do Instituto Federal de Educa\c{c}\~ao, Ci\^encia e Tecnologia do Cear\'a, como requisito parcial para a obten\c c\~ao do Título de \ABNTGraudata~em Engenharia de Telecomunica\c{c}\~oes. \ABNTarea.}
+\renewcommand{\ABNTpos}{PROGRAMA DE P\'OS-GRADUA\c{C}\~AO EM ENGENHARIA DE TELECOMUNICA\c{c}\~OES\\}
+\else
+\renewcommand{\ABNTarea}{\'Area de Concentra\c{c}\~ao:  Processamento Digital de Sinais}
+\renewcommand{\ABNTTipodata}{Tese de Doutorado}
+\renewcommand{\ABNTGraudata}{Doutor}
+\renewcommand{\ABNTGrau}{Doutorado}
+\comentario{\ABNTTipodata~de~\ABNTGrau~apresentada ao  Programa  de P\'os-Gradua\c c\~ao em Engenharia de Telecomunica\c{c}\~oes do Instituto Federal de Educa\c{c}\~ao, Ci\^encia e Tecnologia do Cear\'a, como requisito parcial para a obten\c c\~ao do Título de \ABNTGraudata~em Engenharia de Telecomunica\c{c}\~oes. \ABNTarea.}
+\renewcommand{\ABNTpos}{PROGRAMA DE P\'OS-GRADUA\c{C}\~AO EM ENGENHARIA DE TELECOMUNICA\c{c}\~OES\\}
+\fi
+\ifnum#1=0
+\renewcommand{\ABNTTipodata}{Monografia}
+\renewcommand{\ABNTGraudata}{Bacharel}
+\renewcommand{\ABNTGrau}{Bacharelado}
+\comentario{\ABNTTipodata~de~\ABNTGrau~apresentada ao Departamento de Telem\'atica do Instituto Federal de Educa\c{c}\~ao, Ci\^encia e Tecnologia do Cear\'a, como requisito parcial para a obten\c c\~ao do Título de \ABNTGraudata~em Engenharia de Telecomunica\c{c}\~oes.}
+\renewcommand{\ABNTpos}{}
+\renewcommand{\ABNTarea}{}
+\fi
+}
+
+\providecommand{\ABNTTitulacaodata}{}
+\newcommand{\Titulacao}[1]{\renewcommand{\ABNTTitulacaodata}{#1}}
+
+\newcommand{\ABNTcodigocipum  }{} \newcommand{\codigocipum  }[1]{\renewcommand{\ABNTcodigocipum}{#1}}
+\newcommand{\ABNTcodigocipdois}{} \newcommand{\codigocipdois}[2]{\renewcommand{\ABNTcodigocipdois}{#1}}
+\newcommand{\codigocip}[2]{\codigocipum{#1}\codigocipdois{#2}}
+
+\newcommand{\ABNTpcumdata}{}
+\newcommand{\pcum}[1]{\renewcommand{\ABNTpcumdata}{#1}}
+\newcommand{\ABNTpcdoisdata}{}
+\newcommand{\pcdois}[1]{\renewcommand{\ABNTpcdoisdata}{#1}}
+\newcommand{\ABNTpctresdata}{}
+\newcommand{\pctres}[1]{\renewcommand{\ABNTpctresdata}{#1}}
+\newcommand{\ABNTpcquatrodata}{}
+\newcommand{\pcquatro}[1]{\renewcommand{\ABNTpcquatrodata}{#1}}
+\newcommand{\ABNTpccincodata}{}
+\newcommand{\pccinco}[1]{\renewcommand{\ABNTpccincodata}{#1}}
+\newcommand{\ABNTpcseisdata}{}
+\newcommand{\pcseis}[1]{\renewcommand{\ABNTpcseisdata}{#1}}
+
+\newcommand{\ABNTautorrdata}{}
+\newcommand{\autorr}[1]{\renewcommand{\ABNTautorrdata}{#1}}
+% \newcommand{\ABNTorientadortipo}{}
+% \newcommand{\tipoorientador}[1]{\renewcommand{\ABNTorientadortipo}{Orientador#1}}
+% \newcommand{\ABNTcoorientadortipo}{}
+% \newcommand{\tipocoorientador}[1]{\renewcommand{\ABNTcoorientadortipo}{Co-orientador#1}}
+\renewcommand{\dataformat}{\bfseries}
+\renewcommand{\localformat}{\bfseries}
+\newcommand{\DataAprovacao}{}
+\newcommand{\dataaprovacao}[1]{\renewcommand{\DataAprovacao}{\underline{#1}}}
+%\dataaprovacao{\_\_/\_\_/\_\_\_\_}
+
+\renewcommand{\resumoname}{RESUMO}
+\renewcommand{\ABNTabstractname}{ABSTRACT}
+\renewcommand{\contentsname}{SUM\'ARIO}
+\renewcommand{\listtablename}{LISTA DE TABELAS}
+
+\newcommand{\ABNTkwumdata}{}
+\newcommand{\kwum}[1]{\renewcommand{\ABNTkwumdata}{#1}}
+\newcommand{\ABNTkwdoisdata}{}
+\newcommand{\kwdois}[1]{\renewcommand{\ABNTkwdoisdata}{#1}}
+\newcommand{\ABNTkwtresdata}{}
+\newcommand{\kwtres}[1]{\renewcommand{\ABNTkwtresdata}{#1}}
+\newcommand{\ABNTkwquatrodata}{}
+\newcommand{\kwquatro}[1]{\renewcommand{\ABNTkwquatrodata}{#1}}
+\newcommand{\ABNTkwcincodata}{}
+\newcommand{\kwcinco}[1]{\renewcommand{\ABNTkwcincodata}{#1}}
+
+\newcommand{\ABNTkwseisdata}{}
+\newcommand{\kwseis}[1]{\renewcommand{\ABNTkwseisdata}{#1}}
+\newcommand{\kws}[5]{\kwum{#1}\kwdois{#2}\kwtres{#3}\kwquatro{#4}\kwcinco{#5}}
+\newcommand{\keywords}{
+	\textbf{Keywords}: \ABNTkwumdata. \ABNTkwdoisdata. \ABNTkwtresdata.
+	\ABNTkwquatrodata. \ABNTkwcincodata. \ABNTkwseisdata }
+\newcommand{\pcs}[5]{\pcum{#1}\pcdois{#2}\pctres{#3}\pcquatro{#4}\pccinco{#5}}
+\newcommand{\palavraschave}{
+	\textbf{Palavras-chave}: \ABNTpcumdata~\ABNTpcdoisdata~\ABNTpctresdata~
+	 \ABNTpcquatrodata~\ABNTpccincodata~\ABNTpcseisdata
+}
+%\newcommand{\ABNTbrasao}{}
+ 
+\newif\ifpdflatex
+% Define os comandos que montam a lista de símbolos
+\newcommand{\listadesimbolos}{\pretextualchapter{\MakeUppercase{Lista de Símbolos}}\@starttoc{lsb}}
+\newcommand{\simbolo}[2]{\noindent\begin{minipage}{\textwidth}\begin{tabular}{p{0.15\textwidth}p{0.80\textwidth}}#1&#2\end{tabular}\end{minipage}}
+% \newcommand{\simbolo}[2]{{\addcontentsline{lsb}{simbolo}{\numberline{#1}{#2}}}#1}
+% \newcommand{\l@simbolo}[2]{
+% 	\vspace{-0.75cm}
+% 	\leftskip 0em
+% 	\parindent 0em
+% 	\@tempdima 7em
+% 	\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+% 	{\normalfont #1}\hfil\nobreak\par}
+
+
+% Define o comando que monta a lista de siglas
+\newcommand{\listadesiglas}{\pretextualchapter{\MakeUppercase{Lista de Siglas}}\@starttoc{lsg}}
+% \newcommand{\sigla}[2]{{\addcontentsline{lsg}{sigla}{\numberline{#1}{#2}}}#1}
+% \newcommand{\l@sigla}[2]{
+% 	\vspace{-0.75cm}
+% 	\leftskip 0em
+% 	\parindent 0em
+% 	\@tempdima 7em
+% 	\advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+% 	{\normalfont #1}\hfil\nobreak\par}
+
+\newcommand{\sigla}[2]{\noindent\begin{minipage}{\textwidth}\begin{tabular}{p{0.15\textwidth}p{0.80\textwidth}}#1&#2\end{tabular}\end{minipage}}
+%\newcommand{\orientador}[2][Orientador:\vspace{1mm}\\]%
+%%Definicao do tipo de Tese e o Grau  .
+%\def\Grau#1{\gdef\@degree{#1}}
+%\def\Titulacao#1{\gdef\@tese{#1}}
+%\def\Tipo#1{\gdef\@tipo{#1}}
+
+%\def\thesisdate#1{\gdef\@thesisdate{#1}}
+
+
+\def\@chapter[#1]#2%
+      {\ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\theHchapter}{\chaptertype\thechapter}}{}
+       \ifnum \c@secnumdepth >\m@ne
+         \refstepcounter{chapter}%
+         \ABNTchaptermark{#1}% This command MUST came before addcontentsline
+         \typeout{\@chapapp\space\thechapter.}%
+         \ifthenelse{\boolean{ABNTaftertoc}}
+           {\ABNTaddcontentsline{toc}{chapter}%
+                   {\protect\numberline{\thechapter}\MakeUppercase{#1}}}
+           {}
+       \else
+         \ABNTchaptermark{#1}% This command MUST came before addcontentsline
+         \ifthenelse{\boolean{ABNTaftertoc}}%
+           {\ABNTaddcontentsline{toc}{chapter}{\MakeUppercase{#1}}}%
+           {}%
+       \fi       
+       \if@twocolumn
+         \@topnewpage[\@makechapterhead{#2}]%
+       \else
+         \@makechapterhead{#2}%
+         \@afterheading
+       \fi\par}
+
+
+\def\@makechapterhead#1{%
+  {%
+%  \noindent\rule{\textwidth}{1.7pt}\\\par
+  \normalfont\ABNTchaptersize\ABNTchapterfont%
+  \espaco{simples}%
+  \vspace*{30pt}%
+  \noindent%
+  \parbox[b]{\textwidth}{%
+    \parbox[t]{4ex}{\thechapter}%
+    \parbox[t]{\textwidth-4ex-1ex}%
+      {\interlinepenalty\@M\raggedright%
+        \ifthenelse{\boolean{ABNTcapchap}}%
+          {\MakeUppercase{#1}}%
+          \MakeUppercase{#1}
+
+      }%
+    \vspace*{0cm}
+    }\\[2pt]%
+  \vspace{50pt}%
+  }%
+}
+
+
+
+
+\newenvironment{agradecimentos}%
+  {%
+   \if@openright\cleardoublepage\else\clearpage\fi%
+   \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{resumo.}}{}
+   \pretextualchapter{AGRADECIMENTOS}%
+   \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{}}{}
+   \setlength{\parindent}{0in}
+    \begin{espacosimples}%
+  }%
+  {\end{espacosimples}\setlength{\parindent}{.7cm}\newpage}%abstract
+  \setlength{\ABNTsignwidth}{10cm}
+\setlength{\ABNTsignskip}{1.3cm}
+\setlength{\ABNTsignthickness}{0.5pt}
+%fontes 
+\renewcommand{\ABNTchapterfont}{\bfseries}
+\newenvironment{bancaexaminadora}%
+  {\capa \folhaderosto\if@openright\cleardoublepage\else\clearpage\fi\begingroup%
+  \centering{\large\ABNTsectionfont\MakeUppercase{\ABNTautordata}}
+  \vskip1cm
+  \begin{center}{\LARGE\ABNTchapterfont\MakeUppercase{\ABNTtitulodata}}\end{center}
+  \vskip1cm
+  \hspace{.45\textwidth}
+  \begin{minipage}{.5\textwidth}
+       \begin{espacosimples}
+         {\comentarioformat\ABNTcomentariodata}\par
+       \end{espacosimples}
+     \end{minipage}
+  \flushleft {Aprovada em \DataAprovacao}\vskip1cm
+   \centering{\bf BANCA EXAMINADORA}\vskip0cm}
+  {\endgroup\if@openright\cleardoublepage\else\clearpage\fi\makecippage}
+
+
+
+
+
+
+
+\def\Dedicatoria#1{\newpage~\vfill
+\begin{flushright}
+\parbox[b]{1.5in}{\begin{center}\baselineskip 4mm \em {#1}\end{center}}\par
+\end{flushright}
+}
+
+%\renewcommand{\contentsname}{Sum\'ario}
+
+\renewcommand{\capa}%
+{%
+% replacing \begin{titlepage}
+\if@twocolumn
+  \@restonecoltrue\onecolumn
+\else
+  \@restonecolfalse\newpage
+\fi
+\thispagestyle{empty}%
+\setcounter{page}\z@
+%\vspace{1cm}
+\espaco{1.1}
+\ABNTifnotempty{\ABNTautordata}%
+  {%
+  \begin{center}
+  \ifpdflatex
+   \psfig{figure=ufc.pdf,height=3.0cm}\\
+   \else
+    \psfig{figure=ifce.eps,height=3.0cm}\\  
+    \fi
+  \vspace{0.5cm}
+{\bf  INSTITUTO FEDERAL DE EDUCA\c{C}\~AO, CI\^ENCIA E TECNOLOGIA DO CEAR\'A\\
+  DEPARTAMENTO DE TELEM\'ATICA \\
+  \ABNTpos
+  }
+  \vspace{2cm}
+    \autorformat\MakeUppercase{\ABNTautordata}
+  \end{center}
+  }
+\vfill\vfill
+\ABNTifnotempty{\ABNTtitulodata}%
+  {%
+   \begin{center}
+     {\tituloformat\MakeUppercase{\ABNTtitulodata}\par}
+   \end{center}
+  }%
+
+\vspace*{1cm}
+\vfill\vfill\vfill
+\begin{center}
+  \begin{espacosimples}
+    \setlength{\parskip}{.3cm}
+    \ABNTifnotempty{\ABNTlocaldata}
+      {{\localformat\MakeUppercase{\ABNTlocaldata}}\par}
+    \ABNTifnotempty{\ABNTdatadata}
+      {{\dataformat\ABNTdatadata}}
+  \end{espacosimples}
+\end{center}
+\vspace*{1cm}
+% replacing \end{titlepage} by its meaning
+\if@restonecol\twocolumn \else \newpage \fi
+\espaco{\ABNTespacodefault}%Corrige bug 114
+}% end of \capa
+
+\newcommand{\makecippage}{
+	\newpage
+	~
+	\vspace*{12cm}
+	\begin{center}
+	\begin{espacosimples}
+	\begin{footnotesize} Dados Internacionais de Catalogação na Publicação\\
+	Instituto Federal de Educa\c{c}\~ao, Ci\^encia e Tecnologia do Cear\'a\\
+	Biblioteca Central\\
+	\end{footnotesize}
+	\end{espacosimples}
+	\vskip0.5cm
+	\end{center}
+	\begin{center}
+	\rule{\textwidth}{1pt}
+	\vspace{0.3cm}
+		\cipwindow
+		\rule{\textwidth}{1pt}		
+	\end{center}
+	\vfill
+}
+
+
+\def\cipwindow{
+\vspace{0.5cm}
+	\makebox[\textwidth]{
+	\begin{footnotesize}
+		\begin{minipage}[b][7.5cm][t]{1.5cm}
+			\ABNTcodigocipum
+		\end{minipage}
+		%\hfill
+		\begin{minipage}[b][7.5cm][s]{12.5cm}
+		\begin{espacosimples}
+			\ABNTautorrdata.
+
+			
+			 \hspace{0.5cm}\noindent\ABNTtitulodata\ / \ABNTautordata. -- Fortaleza, \ABNTdatadata.
+
+			
+			\hspace{0.5cm}\noindent\pageref{LastPage} f.:il.\\
+			
+			
+	\hspace{0.5cm}\noindent\ABNTTipodata~(\MakeLowercase{\ABNTGrau}) - Instituto Federal de Educa\c{c}\~ao, Ci\^encia e Tecnologia do Cear\'a, Departamento de Telem\'atica, Fortaleza, \ABNTdatadata.
+	
+	\hspace{0.5cm}\noindent\ABNTarea
+	
+         \hspace{0.5cm}\noindent Orienta\c{c}\~ao: \ABNTorientadordata\\
+
+	\hspace{0.5cm}\noindent \ABNTifnotempty{\ABNTpcumdata}{$1$.~\ABNTpcumdata.~}\ABNTifnotempty{\ABNTpcdoisdata}{$2$.~\ABNTpcdoisdata.~}\ABNTifnotempty{\ABNTpctresdata}{$3$.~\ABNTpctresdata.~}\ABNTifnotempty{\ABNTpcquatrodata}{$4$.~\ABNTpcquatrodata.~}\ABNTifnotempty{\ABNTpccincodata}{$5$.~\ABNTpccincodata.~}I. T\'\i tulo.
+
+\vspace{-1.5cm}
+			\begin{flushright}
+				\ABNTcodigocipdois
+			\end{flushright}
+			\end{espacosimples}
+		\end{minipage}
+		\end{footnotesize}
+	}
+	\vspace{-2.5cm}
+	
+}
+
+
+\gdef\uececipdata{
+	\hspace{0.5cm}
+	\small\noindent\ABNTTipodata ~- Instituto Federal de Educa\c{c}\~ao, Ci\^encia e Tecnologia do Cear\'a, Departamento de Telem\'atica, Fortaleza, \ABNTdatadata.\\
+	\hspace{0.5cm}
+	\small\noindent\'Area de Concentra\c{c}\~ao:  Processamento Digital de Sinais\\
+\hspace{0.5cm}\small\noindent Orienta\c{c}\~ao: \ABNTorientadordata\\
+	
+	\hspace{0.5cm}\noindent $1$. \ABNTpcumdata.\ $2$. \ABNTpcdoisdata.\ $3$. \ABNTpctresdata.\ $4$.
+	\ABNTpcquatrodata.\  \ABNTifnotempty{\ABNTpccincodata}\ I.
+	
+
+}
+
+
+\renewcommand{\folhaderosto}%
+{%
+\begin{titlepage}
+\espaco{1.1}
+\ABNTifnotempty{\ABNTautordata}%
+  {%
+  \begin{center}
+    \autorformat\MakeUppercase{\ABNTautordata}
+  \end{center}
+  }
+\vfill\vfill\vfill
+\ABNTifnotempty{\ABNTtitulodata}%
+  {%
+   \begin{center}
+     {\tituloformat\MakeUppercase{\ABNTtitulodata}\par}
+   \end{center}
+  }%
+%\ABNTifnotempty{\ABNTcomentariodata}%
+  %{
+   \vspace{.8cm}
+   \hspace{.45\textwidth}
+     \begin{minipage}{.5\textwidth}
+       \begin{espacosimples}
+         {\comentarioformat\ABNTcomentariodata}\par
+       \end{espacosimples}
+     
+ %  }
+  \ABNTifnotempty{\ABNTorientadordata}% 
+  {%
+\hspace{.45\textwidth}
+\begin{espacosimples}
+   {\comentarioformat\ABNTorientadorname~\ABNTorientadordata}
+  \end{espacosimples} 
+  }
+\ABNTifnotempty{\ABNTcoorientadordata}
+  {%
+  \vspace{0.3cm}
+\begin{espacosimples}
+   {\comentarioformat\ABNTcoorientadorname~\ABNTcoorientadordata}
+   \end{espacosimples}
+ }
+ \end{minipage}
+\vfill
+%\begin{center}
+%\begin{espacosimples}
+%  \setlength{\parskip}{.3cm}
+%  \ABNTifnotempty{\ABNTinstituicaodata}%
+%    {%
+%     \setlength{\parskip}{0cm}
+%     {\instituicaoformat\ABNTinstituicaodata\par}
+%     \setlength{\parskip}{.3cm}\par
+%     
+%    }
+%\end{espacosimples}
+%\end{center}
+\vfill\vfill
+\begin{center}
+  \ABNTifnotempty{\ABNTlocaldata}
+      {{\localformat\MakeUppercase{\ABNTlocaldata}}\par}
+    \ABNTifnotempty{\ABNTdatadata}
+      {{\dataformat\ABNTdatadata}}
+
+\end{center}
+\end{titlepage}
+}% end of \folhaderosto
+
+
+
+
+
+
+
+
+
+
+
+
+ 
